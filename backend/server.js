@@ -18,6 +18,13 @@ app.get('/', (req, res) => {
 app.post('/submit', async (req, res) => {
   const { name, email, company, message } = req.body;
 
+  // Log the new lead details
+  console.log('New lead received:');
+  console.log(`Name: ${name}`);
+  console.log(`Email: ${email}`);
+  console.log(`Company: ${company || ''}`);
+  console.log(`Message: ${message || ''}`);
+
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required' });
   }
